@@ -5,8 +5,9 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
+import com.zavanton.core.AppContext
 import com.zavanton.demodagger.R
-import com.zavanton.demodagger.app.di.AppContext
+import com.zavanton.offers.ui.OffersActivity
 import dagger.android.AndroidInjection
 import javax.inject.Inject
 
@@ -37,7 +38,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         btnOffers.setOnClickListener {
-
+            OffersActivity.start(this)
         }
 
     }

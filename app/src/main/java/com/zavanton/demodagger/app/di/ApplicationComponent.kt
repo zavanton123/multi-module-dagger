@@ -1,21 +1,18 @@
 package com.zavanton.demodagger.app.di
 
 import android.content.Context
+import com.zavanton.core.AppContext
 import com.zavanton.demodagger.app.App
 import com.zavanton.demodagger.main.di.MainActivityModule
 import com.zavanton.demodagger.main.di.MainActivitySubcomponent
 import com.zavanton.demodagger.utils.SoundUtils
+import com.zavanton.offers.di.OffersActivityModule
 import dagger.BindsInstance
 import dagger.Component
 import dagger.Module
 import dagger.Provides
 import dagger.android.AndroidInjectionModule
-import javax.inject.Qualifier
 import javax.inject.Singleton
-
-@Qualifier
-@Retention
-annotation class AppContext
 
 @Singleton
 @Component(
@@ -43,7 +40,8 @@ interface ApplicationComponent {
 
 @Module(
     includes = [
-        MainActivityModule::class
+        MainActivityModule::class,
+        OffersActivityModule::class
     ]
 )
 interface Modules

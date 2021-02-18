@@ -49,5 +49,6 @@ dependencies {
     implementation project(":transactions")
     implementation project(":core-profiles")
     implementation project(":profiles")
+    implementation project(":core")
 
 }

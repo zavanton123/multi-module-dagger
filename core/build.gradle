@@ -42,7 +42,4 @@ dependencies {
     implementation 'com.google.dagger:dagger-android:2.32'
     implementation 'com.google.dagger:dagger-android-support:2.32'
     kapt 'com.google.dagger:dagger-android-processor:2.32'
-
-    implementation project(':core-profiles')
-    implementation project(":core")
 }

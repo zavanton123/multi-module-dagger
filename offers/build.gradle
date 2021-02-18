@@ -45,4 +45,5 @@ dependencies {
     kapt 'com.google.dagger:dagger-android-processor:2.32'
 
     implementation project(":core-offers")
+    implementation project(":core")
 }
