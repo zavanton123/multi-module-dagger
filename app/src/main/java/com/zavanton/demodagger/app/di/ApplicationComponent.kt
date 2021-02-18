@@ -7,6 +7,7 @@ import com.zavanton.demodagger.main.di.MainActivityModule
 import com.zavanton.demodagger.main.di.MainActivitySubcomponent
 import com.zavanton.demodagger.utils.SoundUtils
 import com.zavanton.offers.di.OffersActivityModule
+import com.zavanton.profiles.di.ProfilesActivityModule
 import dagger.BindsInstance
 import dagger.Component
 import dagger.Module
@@ -41,7 +42,8 @@ interface ApplicationComponent {
 @Module(
     includes = [
         MainActivityModule::class,
-        OffersActivityModule::class
+        OffersActivityModule::class,
+        ProfilesActivityModule::class
     ]
 )
 interface Modules
