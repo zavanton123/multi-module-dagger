@@ -5,7 +5,7 @@
     >
 
     <application>
-        <activity android:name=".OffersActivity"></activity>
+        <activity android:name=".ui.OffersActivity"></activity>
     </application>
 
 </manifest>

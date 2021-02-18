@@ -2,7 +2,10 @@ package com.zavanton.demodagger.app.di
 
 import android.content.Context
 import com.zavanton.demodagger.app.App
+import com.zavanton.demodagger.main.di.MainActivityModule
+import com.zavanton.demodagger.main.di.MainActivitySubcomponent
 import com.zavanton.demodagger.utils.SoundUtils
+import com.zavanton.offers.di.OffersActivityModule
 import dagger.BindsInstance
 import dagger.Component
 import dagger.Module
@@ -34,11 +37,15 @@ interface ApplicationComponent {
         fun build(): ApplicationComponent
     }
 
+    fun mainActivitySubcomponentFactory(): MainActivitySubcomponent.Factory
+
     fun inject(app: App)
 }
 
 @Module(
     includes = [
+        MainActivityModule::class,
+        OffersActivityModule::class
     ]
 )
 interface Modules
