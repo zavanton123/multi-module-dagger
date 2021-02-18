@@ -6,8 +6,8 @@ import android.util.Log
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import com.zavanton.demodagger.R
-import com.zavanton.demodagger.app.App
 import com.zavanton.demodagger.app.di.AppContext
+import dagger.android.AndroidInjection
 import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
@@ -17,11 +17,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var appContext: Context
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        (this.application as App)
-            .applicationComponent
-            ?.mainActivitySubcomponentFactory()
-            ?.build()
-            ?.inject(this)
+        AndroidInjection.inject(this)
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)

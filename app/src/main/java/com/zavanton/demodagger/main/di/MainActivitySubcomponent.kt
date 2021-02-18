@@ -2,9 +2,13 @@ package com.zavanton.demodagger.main.di
 
 import com.zavanton.demodagger.main.MainActivity
 import com.zavanton.demodagger.main.MainActivityPresenter
+import dagger.Binds
 import dagger.Module
 import dagger.Provides
 import dagger.Subcomponent
+import dagger.android.AndroidInjector
+import dagger.multibindings.ClassKey
+import dagger.multibindings.IntoMap
 import javax.inject.Scope
 
 @Scope
@@ -16,8 +20,14 @@ annotation class MainActivityScope
         MainActivitySubcomponent::class
     ]
 )
-class MainActivityModule {
+interface MainActivityModule {
 
+    @Binds
+    @IntoMap
+    @ClassKey(MainActivity::class)
+    fun bindsInjector(
+        impl: MainActivitySubcomponent.Factory
+    ): AndroidInjector.Factory<*>
 }
 
 @MainActivityScope
@@ -26,15 +36,11 @@ class MainActivityModule {
         MainActivityPresenterModule::class
     ]
 )
-interface MainActivitySubcomponent {
+interface MainActivitySubcomponent : AndroidInjector<MainActivity> {
 
     @Subcomponent.Factory
-    interface Factory {
-
-        fun build(): MainActivitySubcomponent
+    interface Factory : AndroidInjector.Factory<MainActivity> {
     }
-
-    fun inject(mainActivity: MainActivity)
 }
 
 @Module

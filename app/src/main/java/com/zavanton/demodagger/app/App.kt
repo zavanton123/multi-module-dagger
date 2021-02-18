@@ -1,21 +1,26 @@
 package com.zavanton.demodagger.app
 
 import android.app.Application
-import com.zavanton.demodagger.app.di.ApplicationComponent
 import com.zavanton.demodagger.app.di.DaggerApplicationComponent
+import dagger.android.AndroidInjector
+import dagger.android.DispatchingAndroidInjector
+import dagger.android.HasAndroidInjector
+import javax.inject.Inject
 
-class App : Application() {
+class App : Application(), HasAndroidInjector {
 
-    var applicationComponent: ApplicationComponent? = null
+    @Inject
+    lateinit var dispatchingAndroidInjector: DispatchingAndroidInjector<Any>
 
     override fun onCreate() {
         super.onCreate()
 
-        applicationComponent = DaggerApplicationComponent
+        DaggerApplicationComponent
             .builder()
             .bindsContext(this)
             .build()
-
-        applicationComponent?.inject(this)
+            .inject(this)
     }
+
+    override fun androidInjector(): AndroidInjector<Any> = dispatchingAndroidInjector
 }
