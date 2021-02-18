@@ -1,4 +1,11 @@
 <manifest
     xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.zavanton.profiles"
-    />
+    >
+
+    <application>
+        <activity android:name=".ProfilesActivity"></activity>
+
+    </application>
+
+</manifest>

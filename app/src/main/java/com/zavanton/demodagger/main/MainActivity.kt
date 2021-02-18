@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.zavanton.core.AppContext
 import com.zavanton.demodagger.R
 import com.zavanton.offers.ui.OffersActivity
+import com.zavanton.profiles.ProfilesActivity
 import dagger.android.AndroidInjection
 import javax.inject.Inject
 
@@ -30,7 +31,7 @@ class MainActivity : AppCompatActivity() {
         val btnOffers = findViewById<Button>(R.id.btnOffers)
 
         btnProfile.setOnClickListener {
-
+            ProfilesActivity.start(this)
         }
 
         btnTransactions.setOnClickListener {
