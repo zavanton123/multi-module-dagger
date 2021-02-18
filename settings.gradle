@@ -1,2 +1,8 @@
 rootProject.name='DemoDagger'
 include ':app'
+include ':core-offers'
+include ':offers'
+include ':core-profiles'
+include ':profiles'
+include ':core-transactions'
+include ':transactions'

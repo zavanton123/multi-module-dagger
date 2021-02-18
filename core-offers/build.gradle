@@ -1,4 +1,4 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android-extensions'
@@ -8,13 +8,13 @@ android {
     buildToolsVersion "29.0.3"
 
     defaultConfig {
-        applicationId "com.zavanton.demodagger"
         minSdkVersion 21
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles 'consumer-rules.pro'
     }
 
     buildTypes {
@@ -42,12 +42,4 @@ dependencies {
     implementation 'com.google.dagger:dagger-android:2.32'
     implementation 'com.google.dagger:dagger-android-support:2.32'
     kapt 'com.google.dagger:dagger-android-processor:2.32'
-
-    implementation project(":offers")
-    implementation project(":core-offers")
-    implementation project(":core-transactions")
-    implementation project(":transactions")
-    implementation project(":core-profiles")
-    implementation project(":profiles")
-
 }
