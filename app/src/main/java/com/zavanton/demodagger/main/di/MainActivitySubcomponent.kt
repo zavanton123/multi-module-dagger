@@ -1,7 +1,7 @@
 package com.zavanton.demodagger.main.di
 
-import com.zavanton.demodagger.main.MainActivity
-import com.zavanton.demodagger.main.MainActivityPresenter
+import com.zavanton.demodagger.main.activity.MainActivity
+import com.zavanton.demodagger.main.activity.MainActivityPresenter
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
@@ -33,7 +33,8 @@ interface MainActivityModule {
 @MainActivityScope
 @Subcomponent(
     modules = [
-        MainActivityPresenterModule::class
+        MainActivityPresenterModule::class,
+        MainFragmentModule::class
     ]
 )
 interface MainActivitySubcomponent : AndroidInjector<MainActivity> {
