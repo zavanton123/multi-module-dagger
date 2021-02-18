@@ -7,6 +7,7 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.zavanton.core.AppContext
 import com.zavanton.profiles.R
+import com.zavanton.profiles.ui.fragment.ProfileFragment
 import dagger.android.AndroidInjection
 import javax.inject.Inject
 
@@ -34,5 +35,11 @@ class ProfilesActivity : AppCompatActivity() {
         setContentView(R.layout.activity_profiles)
 
         Log.d("zavanton", "zavanton - profiles appContext: $appContext")
+
+        if (supportFragmentManager.findFragmentById(R.id.fragmentContainer) == null) {
+            supportFragmentManager.beginTransaction()
+                .add(R.id.fragmentContainer, ProfileFragment.newInstance(), null)
+                .commit()
+        }
     }
 }
